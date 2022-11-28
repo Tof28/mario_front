@@ -7,31 +7,24 @@ padding-top: 80px;
 padding-left: 500px;
 }
 
-main-container {
-    width: 100%;
-    background-color: red;
+.main-container {
+    position: relative;
+    width: 1024px;
+    height: 576px;
+    margin:0 auto;
+
 }
 
 .fond-mario {
     position: relative;
-    padding-top: 60px;
-    padding-left: 300px;
-    size-adjust: 40%;
-    z-index: 0;
+    padding-top: 0px;
+    padding-left: 0px;
 }
 
-#mario1 {
+#mario {
     position: absolute;
     width: 100px;
-    left: 300px;
-    bottom: 110px;
+    top: 350px;
+    left: 10px;
     z-index: 1;
-}
-
-#mario2 {
-    position: absolute;
-    width: 100px;
-    left: 320px;
-    bottom: 120px;
-    z-index: 2;
 }
