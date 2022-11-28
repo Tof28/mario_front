@@ -28,3 +28,7 @@ padding-left: 500px;
     left: 10px;
     z-index: 1;
 }
+
+.button {
+    border-radius: 20%;
+}
