@@ -12,16 +12,18 @@
 <body>  
     <h1><strong>Welcome to Mario World!</strong></h1>
 
-    <div class="main-container">
+    <div class="main-container" id="main-container">
         <img src="img/fond_mario.webp" alt="Le monde de Mario" class="fond-mario" id="fond-mario">
         <img src="img/Mario.png" alt="Mario" class="mario" id="mario">
+        <img src="img/main.png" alt="Cursor" class="main" id="main">
+        <a href="#" id="zonechateau"></a>
     </div>
-
-<button href="#" id="flechegauche" class="button">LEFT</button>
-    <button href="#" id="flechedroite" class="button">RIGHT</button>
-    <button href="#" id="flechehaute" class="button">UP</button>
-    <button href="#" id="flechebasse" class="button">DOWN</button>
-
+    <div class="fleches">
+        <button href="#" id="flechegauche" class="button">LEFT</button>
+        <button href="#" id="flechedroite" class="button">RIGHT</button>
+        <button href="#" id="flechehaute" class="button">UP</button>
+        <button href="#" id="flechebasse" class="button">DOWN</button>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/site.js"></script>
 </body>
