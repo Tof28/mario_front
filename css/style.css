@@ -4,7 +4,7 @@
 
 h1 {
 padding-top: 80px;
-padding-left: 500px;
+padding-left: 550px;
 }
 
 .main-container {
@@ -30,5 +30,5 @@ padding-left: 500px;
 }
 
 .button {
-    border-radius: 20%;
+    border-radius: 10%;
 }
