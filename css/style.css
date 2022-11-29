@@ -24,8 +24,8 @@ padding-left: 550px;
 #mario {
     position: absolute;
     display: none;
-    width: 100px;
-    top: 350px;
+    width: 50px;
+    top: 410px;
     left: 10px;
     z-index: 200;
 }
@@ -47,9 +47,63 @@ padding-left: 550px;
 
 #zonechateau {
     position: absolute;
-    top:230px;
-    left:845px;
-    width: 70px;
+    background-color: red;
+    top:210px;
+    left: 830px;
+    width: 100px;
+    height:80px;
+    z-index: 300;
+    opacity:0.3;
+}
+#victoire {
+    position: absolute;
+    display: block;
+    background-color: yellow;
+    top:80px;
+    left:460px;
+    width: 90px;
     height:70px;
     z-index: 300;
+    opacity: 0.4;
+}
+
+#mario-victoire {
+    position: absolute;
+    display: none;
+    width: 100px;
+    top:80px;
+    left:460px;
+    width: 90px;
+    z-index: 500;
+
+}
+
+#message {
+    position: absolute;
+    display: none;
+    background-color: red;
+    width: 100px;
+    height: 70px;
+    top:200px;
+    left:460px;
+    width: 90px;
+    z-index: 500;
+}
+
+#monstre-mario {
+    position: absolute;
+    display: block;
+    width: 50px;
+    top: 420px;
+    left: 100px;
+    z-index: 200;
+}
+
+#fleur-mario {
+    position: absolute;
+    display: block;
+    width: 50px;
+    top: 405px;
+    left: 480px;
+    z-index: 200;
 }
