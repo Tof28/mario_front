@@ -1,4 +1,4 @@
-$( document ).ready(function() { //activer une focntion quand la page est chargée
+$( document ).ready(function() { //activer une fonction quand la page est chargée
     //var marioposition = $("#mario").position();
 
     function fd() {
