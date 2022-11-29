@@ -1,19 +1,18 @@
 $( document ).ready(function() { //activer une fonction quand la page est chargée
-    //var marioposition = $("#mario").position();
-
+  
     function fd() {
         var marioposition = $("#mario").position(); // créer une variable pour récupérer la position de l'image mario
 
         var marioleft = marioposition.left; // créer une autre variable à incrémenter
 
-        marioleft += 100; // incrémenter la nouvelle variable de l'image
+        marioleft += 50; // incrémenter la nouvelle variable de l'image
         if(marioleft<950) {
         $("#mario").css("left", marioleft + "px"); //faire avancer l'image mario modifiant sa position css à chaque clic
         }
     };
 
     function fg() {
-        var marioposition = $("#mario").position();
+       var marioposition = $("#mario").position();
 
         var marioleft = marioposition.left;
 
@@ -76,4 +75,24 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
                     break;
         };
     });
-}); 
+
+//Clique sur le chateau
+$(document).mousemove(function(event){
+
+    var mouseX = event.pageX;
+    var mouseY = event.pageY;
+
+    var container_position = $('#main-container').position();
+    var container_positionX = container_position.left;
+    var container_positionY = container_position.top;
+
+    $('#main').css('left', mouseX-container_positionX-50 + 'px');
+    $('#main').css('top', mouseY-container_positionY-50 + 'px');
+
+});
+
+$("#zonechateau").click(function() {
+    $('#main').css('display', 'none');
+    $('#mario').css('display', 'block');
+})
+});
