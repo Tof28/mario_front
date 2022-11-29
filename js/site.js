@@ -7,7 +7,7 @@ $( document ).ready(function() { //activer une focntion quand la page est charg�
         var marioleft = marioposition.left; // créer une autre variable à incrémenter
 
         marioleft += 100; // incrémenter la nouvelle variable de l'image
-        if(marioleft<1000) {
+        if(marioleft<950) {
         $("#mario").css("left", marioleft + "px"); //faire avancer l'image mario modifiant sa position css à chaque clic
         }
     };
@@ -17,7 +17,7 @@ $( document ).ready(function() { //activer une focntion quand la page est charg�
 
         var marioleft = marioposition.left;
 
-        marioleft -= 100;
+        marioleft -= 50;
         if(marioleft > 0) {
         $("#mario").css("left", marioleft + "px");
         }
