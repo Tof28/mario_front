@@ -3,16 +3,16 @@
 }
 
 h1 {
-padding-top: 80px;
+padding-top: 60px;
 padding-left: 550px;
 }
 
-.main-container {
+#main-container {
     position: relative;
     width: 1024px;
-    height: 576px;
+    height: 576px;    
     margin:0 auto;
-
+    
 }
 
 .fond-mario {
@@ -23,12 +23,33 @@ padding-left: 550px;
 
 #mario {
     position: absolute;
+    display: none;
     width: 100px;
     top: 350px;
     left: 10px;
-    z-index: 1;
+    z-index: 200;
+}
+
+#main {
+    position: absolute;
+    display: block;
+    width: 100px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    z-index: 300;    
 }
 
 .button {
     border-radius: 10%;
+    z-index: 300;
+}
+
+#zonechateau {
+    position: absolute;
+    top:230px;
+    left:845px;
+    width: 70px;
+    height:70px;
+    z-index: 300;
 }
