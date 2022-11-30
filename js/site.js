@@ -1,5 +1,5 @@
 $( document ).ready(function() { //activer une fonction quand la page est chargée
-  
+   
     function fd() {
         var marioposition = $("#mario").position(); // créer une variable pour récupérer la position de l'image mario
 
@@ -8,7 +8,8 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
         marioleft += 30; // incrémenter la nouvelle variable de l'image
         if(marioleft<980) {
         $("#mario").css("left", marioleft + "px"); //faire avancer l'image mario modifiant sa position css à chaque clic
-        }
+        } 
+        points();
     };
 
     function fg() {
@@ -20,7 +21,8 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
         if(marioleft > 0) {
         $("#mario").css("left", marioleft + "px");
         }
-    }
+        points();
+    };
 
     function ft() {
 
@@ -32,7 +34,9 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
         if(mariotop>0) {
         $("#mario").css("top", mariotop + "px");
         }
-    }
+        points();
+
+    };
     function fb() {
 
         var marioposition = $("#mario").position();
@@ -43,7 +47,10 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
         if(mariotop<500) {
         $("#mario").css("top", mariotop + "px");
         }
-    }
+        points();
+    
+    };
+
     $("#flechedroite").click(function() { //conditionner la  fonction au clic sur le bouton correspondant
         fd();
          });
@@ -63,18 +70,60 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
             
                 case 37:    //flèche gauche
                     fg();
+                    $("#mario").each(function() {
+                        if(local())       
+                            {
+                            $("#mario-victoire").css('display', 'block');
+                            $("#message").css('display', 'block');
+                            score += 1;
+                            $("#score span").html(score);
+                            }
+                        });
                     break;
                 case 38:    //flèche du haut
                     ft();
+                    $("#mario").each(function() {
+                        if(local())       
+                            {
+                            $("#mario-victoire").css('display', 'block');
+                            $("#message").css('display', 'block');
+                            score += 1;
+                            $("#score span").html(score);
+                            }
+                        });
                     break;
                 case 39:    //flèche droite
                    fd();
+                   $("#mario").each(function() {
+                    if(local())       
+                        {
+                        $("#mario-victoire").css('display', 'block');
+                        $("#message").css('display', 'block');
+                        score += 1;
+                        $("#score span").html(score);
+                        }
+                    });
                     break;
-                case 40:    //flècehe du bas
+                case 40:    //flèche du bas
                    fb();
+                   $("#mario").each(function() {
+                    if(local())       
+                        {
+                        $("#mario-victoire").css('display', 'block');
+                        $("#message").css('display', 'block');
+                        score += 1;
+                        $("#score span").html(score);
+                        }
+                    });
                     break;
         };
     });
+    
+    function points() { // fonction score qui s'incrémente quand mario se déplace
+        var score = 0;
+          
+      
+        } 
 
     //Clique sur le chateau
     $(document).mousemove(function(event){
@@ -88,23 +137,40 @@ $( document ).ready(function() { //activer une fonction quand la page est charg�
 
         $('#main').css('left', mouseX-container_positionX-50 + 'px');
         $('#main').css('top', mouseY-container_positionY-50 + 'px');
-
     });
 
     $("#zonechateau").click(function() {
         $('#main').css('display', 'none');
-        $('#mario').css('display', 'block');
+        $('#mario').css('visibility', 'visible');
     });
 
-    /*$("#victoire").click(function() {
+    var score = 0;
+    $("#score span").html(score);
 
-       // var message = ("Vous avez gagné!");
+    function local() {
+        var r1 = $("#mario");
+        var r2 = $("#zonechateau");
         
-        $("#mario-victoire").css('display', 'block');
-        $("#message").css('display', 'block');
-
-    });*/
-
+        var r1x = r1.offset().left;
+        var r1w = r1.width();
+        var r1y = r1.offset().top;
+        var r1h = r1.height();
+        
+        var r2x = r2.offset().left;
+        var r2w = r2.width();
+        var r2y = r2.offset().top;
+        var r2h = r2.height();
+        
+        if( r1y+r1h < r2y ||
+            r1y > r2y+r2h ||
+            r1x > r2x+r2w ||
+            r1x+r1w < r2x ){
+            return false;
+        }else{
+            return true;   
+        }
+    };
+});
     $("#victoire").css(function(event) {
         var marioposition = $("#mario").position();
 
