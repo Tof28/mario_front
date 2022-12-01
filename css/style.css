@@ -50,13 +50,11 @@ padding-left: 550px;
 }
 #zonechateau {
     position: absolute;
-    background-color: transparent;
     top:180px;
-    left: 830px;
-    width: 100px;
-    height: 50px;
+    left: 840px;
+    width: 70px;
+    height: 60px;
     z-index: 300;
-
 }
 
 #mario-victoire {
@@ -85,17 +83,18 @@ padding-left: 550px;
 
 #monstre-mario {
     position: absolute;
-    display: block;
+    visibility: hidden;
     width: 50px;
     top: 420px;
     left: 105px;
     z-index: 200;
+
 }
 
 #fleur-mario {
-    position: absolute;
-    display: block;
-    width: 50px;
+    position: absolute;    
+    visibility: hidden;
+    width: 70px;
     top: 405px;
     left: 480px;
     z-index: 200;
