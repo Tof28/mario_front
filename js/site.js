@@ -7,16 +7,22 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
 
         marioleft += 30; // incr√©menter la nouvelle variable de l'image
         if(marioleft<980) {
-        $("#mario").css("left", marioleft + "px"); //faire avancer l'image mario modifiant sa position css √† chaque action sur les fl√®ches
+        $("#mario").css("left", marioleft + "px");//faire avancer l'image mario en modifiant sa position css √† chaque action sur les fl√®ches
+        const img = document.getElementById("#mario");
+        img.style = "display: none;";
+        img.style = "display: block;";
+        setTimeout(() => {
+        img.src = img.src;
+        }, 0);
         } 
         score += 1;
         $("#score span").html(score);
         if(monstre1()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
         if(monstre2()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
     };
@@ -33,11 +39,11 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         score += 1;
         $("#score span").html(score);
         if(monstre1()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
         if(monstre2()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
     };
@@ -50,16 +56,16 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
 
         mariotop -= 30;
         if(mariotop>0) {
-        $("#mario").css("top", mariotop + "px");
+            $("#mario").css("top", mariotop + "px");
         }
         score += 1;
         $("#score span").html(score);
         if(monstre1()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
         if(monstre2()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
     };
@@ -77,15 +83,27 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         score += 1;
         $("#score span").html(score);
         if(monstre1()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
         if(monstre2()) {
-            score -= 1;
+            score -= 2;
         $("#score span").html(score);
         }
     };
-
+    function jump() {
+        $("#mario").animate({
+            top:"-=150px",
+            left:"+=120px"
+        }),
+        5000;
+        $("#mario").animate({
+            top:"+=150px",
+            left:"+=120px"
+        }),
+        5000;
+        return false;
+    }
     $(document).keydown(function(e){
         switch (e.which){
                 case 37:    //fl√®che gauche
@@ -128,6 +146,16 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
                             }
                     });
                     break;
+                    case 32:    //fl√®che du bas
+                   jump();
+                   $("#mario").each(function() {
+                        if(local())       
+                            {
+                            $("#mario-victoire").css('display', 'block');
+                            $("#message").css('display', 'block');
+                            }
+                    });
+                    break;
         };
     });
     //Clique sur le chateau
@@ -144,7 +172,7 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         $('#main').css('top', mouseY-container_positionY-50 + 'px');
     });
 
-    $("#zonechateau").click(function() {
+    $("#start").click(function() {
         $('#main').css('display', 'none');
         $('#mario').css('visibility', 'visible');
     });
@@ -223,4 +251,13 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
             return true;   
         }
     };
+
+    $("#reset").click(function() {
+        $('#main').css('display', 'block');
+        $('#mario').css('visibility', 'hidden');
+        $("#mario-victoire").css('display', 'none');
+        $("#message").css('display', 'none');
+        $("#mario").css(marioposition);
+    });
+    
 });
