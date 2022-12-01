@@ -1,0 +1,112 @@
+.body {
+    margin: 0 auto;
+}
+
+h1 {
+padding-top: 60px;
+padding-left: 550px;
+}
+
+#main-container {
+    position: relative;
+    width: 1024px;
+    height: 576px;    
+    margin:0 auto;
+    
+}
+
+.fond-mario {
+    position: relative;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+#mario {
+    position: absolute;
+    visibility:hidden;
+    width: 50px;
+    top: 410px;
+    left: 10px;
+    z-index: 300;
+}
+
+#main {
+    position: absolute;
+    display: block;
+    width: 100px;
+    top: 50px;
+    left: 50px;
+    bottom: 0px;
+    z-index: 300;    
+}
+
+.button {
+    border-radius: 10%;
+    z-index: 300;
+}
+
+.p {
+    visibility: hidden;
+}
+#zonechateau {
+    position: absolute;
+    background-color: transparent;
+    top:180px;
+    left: 830px;
+    width: 100px;
+    height: 50px;
+    z-index: 300;
+
+}
+
+#mario-victoire {
+    position: absolute;
+    display: none;
+    width: 100px;
+    top:80px;
+    left:460px;
+    width: 90px;
+    z-index: 500;
+}
+
+#message {
+    position: absolute;
+    display: none;
+    background-color: red;
+    width: 100px;
+    height: 70px;
+    top:200px;
+    left:460px;
+    width: 90px;
+    z-index: 500;
+    align-content: center;
+    border-radius: 20%;
+}
+
+#monstre-mario {
+    position: absolute;
+    display: block;
+    width: 50px;
+    top: 420px;
+    left: 105px;
+    z-index: 200;
+}
+
+#fleur-mario {
+    position: absolute;
+    display: block;
+    width: 50px;
+    top: 405px;
+    left: 480px;
+    z-index: 200;
+}
+
+#score {
+    background-color: grey;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 80px;
+    opacity: 0.7;
+}
