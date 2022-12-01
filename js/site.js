@@ -9,7 +9,8 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         if(marioleft<980) {
         $("#mario").css("left", marioleft + "px"); //faire avancer l'image mario modifiant sa position css √† chaque clic
         } 
-        points();
+        score += 1;
+        $("#score span").html(score);
     };
 
     function fg() {
@@ -21,7 +22,8 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         if(marioleft > 0) {
         $("#mario").css("left", marioleft + "px");
         }
-        points();
+        score += 1;
+        $("#score span").html(score);
     };
 
     function ft() {
@@ -34,7 +36,8 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         if(mariotop>0) {
         $("#mario").css("top", mariotop + "px");
         }
-        points();
+        score += 1;
+        $("#score span").html(score);
 
     };
     function fb() {
@@ -47,10 +50,11 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         if(mariotop<500) {
         $("#mario").css("top", mariotop + "px");
         }
-        points();
+        score += 1;
+        $("#score span").html(score);
     
     };
-
+/*
     $("#flechedroite").click(function() { //conditionner la  fonction au clic sur le bouton correspondant
         fd();
          });
@@ -64,7 +68,7 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
         fb();
        
     });
-    
+    */
     $(document).keydown(function(e){
         switch (e.which){
             
@@ -75,9 +79,12 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
                             {
                             $("#mario-victoire").css('display', 'block');
                             $("#message").css('display', 'block');
-                            score += 1;
-                            $("#score span").html(score);
                             }
+                        if(monstre())
+                        {
+                        score -=1;
+                        $("#score span").html(score);
+                        }
                         });
                     break;
                 case 38:    //fl√®che du haut
@@ -87,9 +94,13 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
                             {
                             $("#mario-victoire").css('display', 'block');
                             $("#message").css('display', 'block');
-                            score += 1;
+                            }
+                        if(monstre())
+                            {
+                            score -=1;
                             $("#score span").html(score);
                             }
+
                         });
                     break;
                 case 39:    //fl√®che droite
@@ -99,9 +110,13 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
                         {
                         $("#mario-victoire").css('display', 'block');
                         $("#message").css('display', 'block');
-                        score += 1;
+                        }
+                        if(monstre())
+                        {
+                        score -=1;
                         $("#score span").html(score);
                         }
+
                     });
                     break;
                 case 40:    //fl√®che du bas
@@ -111,9 +126,13 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
                         {
                         $("#mario-victoire").css('display', 'block');
                         $("#message").css('display', 'block');
-                        score += 1;
+                        }
+                        if(monstre())
+                        {
+                        score -=1;
                         $("#score span").html(score);
                         }
+
                     });
                     break;
         };
@@ -170,23 +189,28 @@ $( document ).ready(function() { //activer une fonction quand la page est charg√
             return true;   
         }
     };
-});
-    $("#victoire").css(function(event) {
-        var marioposition = $("#mario").position();
 
-        var chateauposition = $("#zonechateau").position();
-
-        var marioPositionX = marioposition.left;
-        var marioPositionY = marioposition.top;
-
-        var chateauPositionX = chateauposition.left;
-        var chateauPositionY = chateauposition.top;
-
-        if(marioPositionX <= chateauPositionX && marioPositionY <= chateauPositionY) {
-            $("#mario-victoire").css('display', 'block');
-            $("#message").css('display', 'block');
+    function monstre() {
+        var r1 = $("#mario");
+        var r3 = $(".monstre");
+        
+        var r1x = r1.offset().left;
+        var r1w = r1.width();
+        var r1y = r1.offset().top;
+        var r1h = r1.height();
+        
+        var r3x = r3.offset().left;
+        var r3w = r3.width();
+        var r3y = r3.offset().top;
+        var r3h = r3.height();
+        
+        if( r1y+r1h < r3y ||
+            r1y > r3y+r3h ||
+            r1x > r3x+r3w ||
+            r1x+r1w < r3x ){
+            return false;
+        }else{
+            return true;   
         }
-
-    });
-
+    };
 });
