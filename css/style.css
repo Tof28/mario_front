@@ -27,6 +27,17 @@ padding-left: 550px;
     top: 410px;
     left: 10px;
     z-index: 300;
+    background-position: 0px 0px;
+}
+
+#mario2 {
+    position: absolute;
+    visibility:hidden;
+    width: 50px;
+    top: 410px;
+    left: 10px;
+    z-index: 300;
+    background-position: 0px 0px;
 }
 
 #main {
